@@ -1,15 +1,15 @@
-FROM node:lts-slim;
+FROM node:lts-slim
 
-COPY . .;
+COPY . .
 # In conjunction with the .dockerignore file
 # This will only copy the files that we want
 # And node_modules, build, log, etc will be ignored
 
-RUN npm install;
+RUN npm install
 
-RUN npm run tsc;
+RUN npm run tsc
 
-EXPOSE 4000;
+EXPOSE 4000
 
 # Every Image must have a CMD or ENTRYPOINT instruction
 # This instruction tells the container what process will be
@@ -17,4 +17,4 @@ EXPOSE 4000;
 # They do basically the same thing
 # But ENTRYPOINT is preferred if you are associating
 # the process with a specific file
-ENTRYPOINT ["node", "build/index.js"];
+ENTRYPOINT ["node", "build/index.js"]
